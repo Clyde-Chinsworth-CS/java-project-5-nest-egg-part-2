@@ -73,9 +73,15 @@ public class NestEgg
 						if (expenses == 0)
 						{ 
 							double tot = 0; //percentages added before division
-							for (int j = retire; j <= years; j++)
+							for (int j = retire; j < years; j++)
 								tot += growthRates[j];
 							double avg = tot / (years-retire);
+							expenses = F / Math.pow(1 + 0.01 * avg, years - retire);
+							System.out.println(Math.pow(0.01 * avg + 1 , years - retire)); //POWER NOT CALCULATING PROPERLY
+							System.out.println(years-retire);
+							System.out.println(F);
+							System.out.println(expenses);
+							System.out.println(avg);
 						}
 					}
 					
