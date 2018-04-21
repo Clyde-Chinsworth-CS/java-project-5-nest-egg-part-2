@@ -7,19 +7,25 @@ public class NestEgg
 	public static void main(String args[])
 	{
 		//VARIABLES : salary, save, growthRate, years, infla
+		double salary = 0;
+		double save = 0;
+		double growthRate = 0;
+		int years = 0;
+		double infla = 0;
+		
 		for(int i = 0; i < args.length; i++)
 		{
-		switch (i) {
-			case 0: double salary = Double.parseDouble(args[i]); //amount user makes yearly
-				break;
-			case 1: double save = Double.parseDouble(args[i]); //how much user will put into account each year
-				break;
-			case 2: double growthRate = Double.parseDouble(args[i]) //percentage that account will increase by yearly
-				break;
-			case 3: int years = Integer.parseInt(args[i]); //amount of years program runs for
-				break;
-			case 4: double infla = Double.parseDouble(args[i]); //inflation rate
-				break;
+			switch (i) {
+				case 0: salary = Double.parseDouble(args[i]); //amount user makes yearly
+					break;
+				case 1: save = Double.parseDouble(args[i]); //how much user will put into account each year
+					break;
+				case 2: growthRate = Double.parseDouble(args[i]); //percentage that account will increase by yearly
+					break;
+				case 3: years = Integer.parseInt(args[i]); //amount of years program runs for
+					break;
+				case 4: infla = Double.parseDouble(args[i]); //inflation rate
+					break;
 			}
 		}
 		
@@ -30,8 +36,8 @@ public class NestEgg
 		for (int i = 1; i < years; i++)
 		{
 		F = F * (1+0.01 * growthRate) + salary * save * 0.01;
-		if (ans.equals("y")) //CHANGE FOR STRING ARGUMENTS
-			F = F * (1 - 0.01 * infla); //converts inflation input to decimal
+		//ADD IF STATEMENT FOR INFLATION
+		F = F * (1 - 0.01 * infla); //converts inflation input to decimal
 		System.out.println("End of year " + (i + 1) + ": $" + F);
 		}
 	}
