@@ -11,10 +11,8 @@ public class NestEgg
 {
 	public static void main(String args[]) throws IOException
 	{
-		//VARIABLES : salary, save, growthRate, years, infla
 		double salary = 0;
 		double save = 0;
-		double growthRate = 0;
 		int years = 0;
 		int retire = 0;
 		double expenses = 0;
@@ -56,6 +54,15 @@ public class NestEgg
 			FileReader fr = new FileReader("growthRate.txt");
 			BufferedReader textReader = new BufferedReader(fr);
 			
+			double[] growthRates;
+			growthRates = new double[years];
+			
+			for (int i = 0; i < years; i++)
+			{
+				growthRates[i] = Double.parseDouble(textReader.readLine());
+				//find the average growth rate, solve for expenses using exponential equation
+			}
+			 
 			for (int i = 1; i <= years; i++)
 			{
 				if (retire != 0 && i >= retire)
@@ -63,21 +70,23 @@ public class NestEgg
 					if (i == (retire))
 					{
 						System.out.println("RETIREMENT"); //seperates retired years
+						if (expenses == 0)
+						{ 
+						}
 					}
 					
 					F = F - expenses;
 				}
 
-				growthRate = Double.parseDouble(textReader.readLine()); //reads line of text file with "i" value
 				
-				if (i < retire)
-					F = F * (1+0.01 * growthRate) + salary * save * 0.01;
+				if (i < retire || retire == 0)
+					F = F * (1+0.01 * growthRates[i-1]) + salary * save * 0.01;
 				else
-					F = F * (1+0.01 * growthRate);
+					F = F * (1+0.01 * growthRates[i-1]);
 				
 				if (infla != 0)
 					F = F * (1 - 0.01 * infla); //converts inflation input to decimal
-				System.out.println("End of " + (i + 1959) + ": $" + F + " Growth Rate: " + growthRate + "%");
+				System.out.println("End of " + (i + 1959) + ": $" + F + " Growth Rate: " + growthRates[i-1] + "%");
 			}
 		}
 	}
