@@ -25,19 +25,21 @@ public class NestEgg
 					break;
 				case 1: save = Double.parseDouble(args[i]); //how much user will put into account each year
 					break;
-				case 2: growthRate = Double.parseDouble(args[i]); //percentage that account will increase by yearly
+				case 2: years = Integer.parseInt(args[i]); //amount of years program runs for
 					break;
-				case 3: years = Integer.parseInt(args[i]); //amount of years program runs for
-					break;
-				case 4: infla = Double.parseDouble(args[i]); //inflation rate
+				case 3: infla = Double.parseDouble(args[i]); //inflation rate
 					break;
 			}
 		}
 		
-		if (salary == 0 || save == 0 || growthRate == 0 || years == 0)
+		if (salary == 0 || save == 0 || years == 0)
 		{
 			System.out.println("Error: values not entered.");
-			System.out.println("Syntax: java NestEgg <salary> <% annually into account> <% annual growth rate> <amount of years to save for> <OPTIONAL: annual inflation rate>");
+			System.out.println("Syntax: java NestEgg <salary> <% annually into account> <amount of years to save for> <OPTIONAL: annual inflation rate>");
+		}
+		else if (years > 59) //Text file only has 59 lines
+		{
+			System.out.println("Error: Enter an amount of years less than 60");
 		}
 		else
 		{
