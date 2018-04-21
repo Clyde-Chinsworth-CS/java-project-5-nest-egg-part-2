@@ -29,9 +29,9 @@ public class NestEgg
 					break;
 				case 2: years = Integer.parseInt(args[i]); //amount of years program runs for
 					break;
-				case 3: retire = Integer.parseInt(args[i])); // amount of years required to retire
+				case 3: retire = Integer.parseInt(args[i]); // amount of years required to retire
 					break;
-				case 4: expenses = Double.parseDouble(args[i])); //Expenses for years after retirement
+				case 4: expenses = Double.parseDouble(args[i]); //Expenses for years after retirement
 					break;
 				case 5: infla = Double.parseDouble(args[i]); //inflation rate
 					break;
@@ -58,8 +58,16 @@ public class NestEgg
 			
 			for (int i = 1; i <= years; i++)
 			{
+				if (retire != 0)
+				{
+					if (i == (retire + 1))
+						System.out.println("RETIREMENT");
+					F = F - expenses;
+				}				
+
 				growthRate = Double.parseDouble(textReader.readLine());
 				F = F * (1+0.01 * growthRate) + salary * save * 0.01;
+				
 				if (infla != 0)
 					F = F * (1 - 0.01 * infla); //converts inflation input to decimal
 				System.out.println("End of " + (i + 1959) + ": $" + F + " Growth Rate: " + growthRate + "%");
