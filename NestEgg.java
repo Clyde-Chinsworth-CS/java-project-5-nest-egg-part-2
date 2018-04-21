@@ -56,7 +56,7 @@ public class NestEgg
 				F = F * (1+0.01 * growthRate) + salary * save * 0.01;
 				if (infla != 0)
 					F = F * (1 - 0.01 * infla); //converts inflation input to decimal
-				System.out.println("End of year " + (i) + ": $" + F);
+				System.out.println("End of " + (i + 1959) + ": $" + F + " Growth Rate: " + growthRate + "%");
 			}
 		}
 	}
