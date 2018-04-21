@@ -2,9 +2,14 @@
 //21/04/2018
 import java.io.*;
 import java.util.*;
+
+import java.io.IOException;
+import java.io.FileReader;
+import java.io.BufferedReader;
+
 public class NestEgg
 {
-	public static void main(String args[])
+	public static void main(String args[]) throws IOException
 	{
 		//VARIABLES : salary, save, growthRate, years, infla
 		double salary = 0;
@@ -36,16 +41,20 @@ public class NestEgg
 		}
 		else
 		{
-			double F = salary * save * 0.01; //base funds
+			//Text file starts at 1960, goes to 2019
 		
-			System.out.println("End of year 1: $" + F);
-			for (int i = 1; i < years; i++)
+			double F = salary * save * 0.01; //base funds
+			
+			FileReader fr = new FileReader("growthRate.txt");
+			BufferedReader textReader = new BufferedReader(fr);
+			
+			for (int i = 1; i <= years; i++)
 			{
-			F = F * (1+0.01 * growthRate) + salary * save * 0.01;
-			//ADD IF STATEMENT FOR INFLATION
-			if (infla != 0)
-				F = F * (1 - 0.01 * infla); //converts inflation input to decimal
-			System.out.println("End of year " + (i + 1) + ": $" + F);
+				growthRate = Double.parseDouble(textReader.readLine());
+				F = F * (1+0.01 * growthRate) + salary * save * 0.01;
+				if (infla != 0)
+					F = F * (1 - 0.01 * infla); //converts inflation input to decimal
+				System.out.println("End of year " + (i) + ": $" + F);
 			}
 		}
 	}
