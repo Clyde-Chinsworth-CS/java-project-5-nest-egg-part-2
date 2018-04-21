@@ -1,5 +1,5 @@
-//Nest Egg Project
-//07/04/2018
+//Nest Egg Project v.2
+//21/04/2018
 import java.io.*;
 import java.util.*;
 public class NestEgg
