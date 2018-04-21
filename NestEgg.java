@@ -61,11 +61,11 @@ public class NestEgg
 				if (retire != 0 && i >= retire)
 				{
 					if (i == (retire))
-						System.out.println("RETIREMENT");
+						System.out.println("RETIREMENT"); //seperates retired years
 					F = F - expenses;
-				}				
+				}
 
-				growthRate = Double.parseDouble(textReader.readLine());
+				growthRate = Double.parseDouble(textReader.readLine()); //reads line of text file with "i" value
 				F = F * (1+0.01 * growthRate) + salary * save * 0.01;
 				
 				if (infla != 0)
