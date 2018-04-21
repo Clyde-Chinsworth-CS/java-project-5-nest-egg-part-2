@@ -13,7 +13,11 @@ public class ReadFile
 		path = file_path;
 	}
 
-	public String[] OpenFile() throws IOException {
+	public String[] OpenFile() throws IOException 
+	{
+		FileReader fr = new FileReader(path);
+		BufferedReader textReader = new BufferedReader(fr);
+		
 
 	}
 
