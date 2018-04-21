@@ -72,6 +72,10 @@ public class NestEgg
 						System.out.println("RETIREMENT"); //seperates retired years
 						if (expenses == 0)
 						{ 
+							double tot = 0; //percentages added before division
+							for (int j = retire; j <= years; j++)
+								tot += growthRates[j];
+							double avg = tot / (years-retire);
 						}
 					}
 					
