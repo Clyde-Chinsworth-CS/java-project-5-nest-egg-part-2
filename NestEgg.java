@@ -61,12 +61,19 @@ public class NestEgg
 				if (retire != 0 && i >= retire)
 				{
 					if (i == (retire))
+					{
 						System.out.println("RETIREMENT"); //seperates retired years
+					}
+					
 					F = F - expenses;
 				}
 
 				growthRate = Double.parseDouble(textReader.readLine()); //reads line of text file with "i" value
-				F = F * (1+0.01 * growthRate) + salary * save * 0.01;
+				
+				if (i < retire)
+					F = F * (1+0.01 * growthRate) + salary * save * 0.01;
+				else
+					F = F * (1+0.01 * growthRate);
 				
 				if (infla != 0)
 					F = F * (1 - 0.01 * infla); //converts inflation input to decimal
