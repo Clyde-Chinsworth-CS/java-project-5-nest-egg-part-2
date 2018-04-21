@@ -58,9 +58,9 @@ public class NestEgg
 			
 			for (int i = 1; i <= years; i++)
 			{
-				if (retire != 0)
+				if (retire != 0 && i >= retire)
 				{
-					if (i == (retire + 1))
+					if (i == (retire))
 						System.out.println("RETIREMENT");
 					F = F - expenses;
 				}				
