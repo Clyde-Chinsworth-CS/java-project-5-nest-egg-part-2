@@ -43,16 +43,6 @@ public class NestEgg
 		}
 		else
 		{
-<<<<<<< HEAD
-			double F = salary * save * 0.01; //base funds
-			
-			for (int i = 1; i <= years; i++)
-			{
-				F = F * (1+0.01 * growthRate) + salary * save * 0.01;
-				if (infla != 0)
-					F = F * (1 - 0.01 * infla); //converts inflation input to decimal
-				System.out.println("End of year " + (i) + ": $" + F);
-=======
 			//Text file starts at 1960, goes to 2019
 		
 			double F = salary * save * 0.01; //base funds
@@ -67,7 +57,6 @@ public class NestEgg
 				if (infla != 0)
 					F = F * (1 - 0.01 * infla); //converts inflation input to decimal
 				System.out.println("End of " + (i + 1959) + ": $" + F + " Growth Rate: " + growthRate + "%");
->>>>>>> varGrowthRates
 			}
 		}
 	}
