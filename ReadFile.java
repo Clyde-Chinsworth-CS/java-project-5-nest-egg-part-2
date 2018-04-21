@@ -16,17 +16,18 @@ public class ReadFile
 	public String[] OpenFile() throws IOException 
 	{
 		FileReader fr = new FileReader(path);
-		BufferedReader textReader = new BufferedReader(fr);
+		BufferedReader bf = new BufferedReader(fr);
 		
-		int numberOfLines = 3;
-		String[] textData = new String[numberOfLines];
+		String aLine;
+		int numberOfLines = readLines();
 		
-		int i;
-		
-		for (i=0; i < numberOfLines; i++)
+		while (( aLine = bf.readLine()) != null)
 		{
-			textData[i] = textReader.readLine();
+			numberOfLines++;
 		}
+		bf.close();
+		
+		return numberOfLines;
 
 	}
 
