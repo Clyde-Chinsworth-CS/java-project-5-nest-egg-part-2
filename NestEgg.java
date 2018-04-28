@@ -78,7 +78,7 @@ public class NestEgg
 							{
 								for (int j = i; j <= years; j++) //simulates the program to determine optimal expenses value through systematic trial and error
 								{
-									G = G * (1 + 0.01 * growthRates[j-1]) - expenses; 
+									G = (G - expenses) * (1 + 0.01 * growthRates[j-1]); 
 								}
 								if (G > 20) //increases expenses if outcome of balance is too high
 								{
@@ -105,7 +105,7 @@ public class NestEgg
 				if (i < retire || retire == 0)
 					F = F * (1+0.01 * growthRates[i-1]) + salary * save * 0.01;
 				else
-					F = F * (1+0.01 * growthRates[i-1]) - expenses;
+					F = (F - expenses) * (1+0.01 * growthRates[i-1]);
 				
 				if (infla != 0)
 					F = F * (1 - 0.01 * infla); //converts inflation input to decimal
