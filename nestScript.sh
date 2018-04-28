@@ -23,6 +23,6 @@ fi
 echo Enter annual inflation rate\: \(OPTIONAL\)
 read varInfla
 
-echo $varSal $varSave $varYears $varRetire $varExpense $varInfla
+java NestEgg $varSal $varSave $varYears $varRetire $varExpense $varInfla
 
 
