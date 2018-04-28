@@ -93,6 +93,7 @@ public class NestEgg
 								else //stops simulation if outcome is in optimal range
 								{
 									isZero = true;
+									System.out.println("Annual expenses: $" + expenses);
 									//as the number of years increase, risk of infinite loop also increases
 								}
 							} 
