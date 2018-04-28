@@ -17,6 +17,7 @@ public class NestEgg
 		int retire = 0;
 		double expenses = 0;
 		double infla = 0;
+		Boolean isZero = false;
 		
 		for(int i = 0; i < args.length; i++)
 		{
@@ -60,7 +61,6 @@ public class NestEgg
 			for (int i = 0; i < years; i++)
 			{
 				growthRates[i] = Double.parseDouble(textReader.readLine());
-				//find the average growth rate, solve for expenses using exponential equation
 			}
 			 
 			for (int i = 1; i <= years; i++)
@@ -72,27 +72,42 @@ public class NestEgg
 						System.out.println("RETIREMENT"); //seperates retired years
 						if (expenses == 0)
 						{ 
-							double tot = 0; //percentages added before division
-							for (int j = retire; j < years; j++)
-								tot += growthRates[j];
-							double avg = tot / (years-retire);
-							expenses = F / Math.pow(1 + 0.01 * avg, years - retire);
-							System.out.println(Math.pow(0.01 * avg + 1 , years - retire)); //POWER NOT CALCULATING PROPERLY
-							System.out.println(years-retire);
-							System.out.println(F);
+							double G = F; //does not change value of F
+							expenses = G / years - retire;
 							System.out.println(expenses);
-							System.out.println(avg);
+							while (isZero == false)
+							{
+								for (int j = i; j <= years; j++) //simulates the program to determine optimal expenses value through systematic trial and error
+								{
+									G = G * (1 + 0.01 * growthRates[j-1]) - expenses; 
+								}
+								if (G > 20) //increases expenses if outcome of balance is too high
+								{
+									System.out.println(G);
+									expenses += 0.1;
+									G = F;
+								}
+								else if (G < -20) //decreases expenses if outcome of balance is too low
+								{
+									System.out.println(G);
+									expenses -= 0.1;
+									G = F;
+								}
+								else //stops simulation if outcome is in optimal range
+								{
+									isZero = true;
+									//as the number of years increase, risk of infinite loop also increases
+								}
+							} 
 						}
 					}
-					
-					F = F - expenses;
 				}
 
 				
 				if (i < retire || retire == 0)
 					F = F * (1+0.01 * growthRates[i-1]) + salary * save * 0.01;
 				else
-					F = F * (1+0.01 * growthRates[i-1]);
+					F = F * (1+0.01 * growthRates[i-1]) - expenses;
 				
 				if (infla != 0)
 					F = F * (1 - 0.01 * infla); //converts inflation input to decimal
