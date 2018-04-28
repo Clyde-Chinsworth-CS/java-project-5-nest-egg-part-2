@@ -82,12 +82,12 @@ public class NestEgg
 								}
 								if (G > 20) //increases expenses if outcome of balance is too high
 								{
-									expenses += 0.1;
+									expenses += 0.05;
 									G = F;
 								}
 								else if (G < -20) //decreases expenses if outcome of balance is too low
 								{
-									expenses -= 0.1;
+									expenses -= 0.05;
 									G = F;
 								}
 								else //stops simulation if outcome is in optimal range
