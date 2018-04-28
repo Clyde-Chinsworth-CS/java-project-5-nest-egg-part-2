@@ -74,7 +74,6 @@ public class NestEgg
 						{ 
 							double G = F; //does not change value of F
 							expenses = G / years - retire;
-							System.out.println(expenses);
 							while (isZero == false)
 							{
 								for (int j = i; j <= years; j++) //simulates the program to determine optimal expenses value through systematic trial and error
@@ -83,13 +82,11 @@ public class NestEgg
 								}
 								if (G > 20) //increases expenses if outcome of balance is too high
 								{
-									System.out.println(G);
 									expenses += 0.1;
 									G = F;
 								}
 								else if (G < -20) //decreases expenses if outcome of balance is too low
 								{
-									System.out.println(G);
 									expenses -= 0.1;
 									G = F;
 								}
