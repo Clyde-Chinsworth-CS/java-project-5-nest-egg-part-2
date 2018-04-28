@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# run program
-
 echo Enter annual salary: 
 read varSal
 
